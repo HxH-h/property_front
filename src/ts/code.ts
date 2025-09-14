@@ -1,0 +1,25 @@
+const SUCCESS = 200
+const NEED_REFRESH = 300
+const REQUEST_BLOCK = 301
+const LOGIN_FAIL = 303
+const NEED_LOGIN = 304
+const FORMAT_ERROR = 305
+const CODE_ERROR = 306
+const CPACHA_ERROR = 307
+const USER_EXIST = 308
+const EMAIL_EMPTY = 309
+
+
+
+export {
+    SUCCESS,
+    NEED_REFRESH,
+    REQUEST_BLOCK,
+    LOGIN_FAIL,
+    NEED_LOGIN,
+    FORMAT_ERROR,
+    CODE_ERROR,
+    EMAIL_EMPTY
+}
+
+
