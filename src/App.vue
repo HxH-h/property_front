@@ -1,30 +1,52 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id="APP">
+    <router-view> </router-view>
+  </div>
 </template>
 
+<script lang="ts" setup>
+import { checkBrowser, DeviceTYPE, BrowserTYPE } from './ts/utils';
+import { ElMessage } from 'element-plus'
+
+const browser = checkBrowser();
+if (browser.deviceType != DeviceTYPE.DESKTOP) {
+  ElMessage({
+    message: 'please use PC to get better experience',
+    type: 'warning',
+    duration: 0,
+    showClose: true,
+  })
+}else if (browser.browserType != BrowserTYPE.EDGE && browser.browserType != BrowserTYPE.CHROME){
+  ElMessage({
+    message: 'suggest use Chrome or Edge',
+    type: 'warning',
+    duration: 0,
+    showClose: true,
+  })
+}
+
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  margin: 0px;
+  background-size: 100% 100%;
 }
 
-nav {
-  padding: 30px;
+.el-row {
+  margin-bottom: 20px;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.el-row:last-child {
+  margin-bottom: 0;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.el-col {
+  border-radius: 4px;
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
 }
 </style>
